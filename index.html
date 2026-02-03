@@ -69,7 +69,7 @@
 <body class="is-preload">
 
 	<!-- Language Toggle Button -->
-	<button id="lang-toggle" onclick="toggleLanguage()" data-current-lang="en">中文</button>
+	<button id="lang-toggle" onclick="toggleLanguage()">中文</button>
 
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -81,16 +81,16 @@
 			</div>
 			<div class="content">
 				<div class="inner">
-					<h1 data-lang-key="name">BO AN CHEN</h1>
-					<p data-lang-key="title">Student</p>
+					<h1>BO AN CHEN<br />陳柏安</h1>
+					<p data-i18n="header.subtitle">Student</p>
 				</div>
 			</div>
 			<nav>
 				<ul>
-					<li><a href="#intro" data-lang-key="navIntro">Intro</a></li>
-					<li><a href="#work" data-lang-key="navWork">Work</a></li>
-					<li><a href="#about" data-lang-key="navAbout">About</a></li>
-					<li><a href="#contact" data-lang-key="navContact">Contact</a></li>
+					<li><a href="#intro" data-i18n="nav.intro">Intro</a></li>
+					<li><a href="#work" data-i18n="nav.work">Work</a></li>
+					<li><a href="#about" data-i18n="nav.about">About</a></li>
+					<li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -100,28 +100,26 @@
 
 			<!-- Intro -->
 			<article id="intro">
-				<h2 class="major" data-lang-key="introTitle">Intro</h2>
+				<h2 class="major" data-i18n="intro.heading">Intro</h2>
 				<span class="image main"><img src="images/pic01.jpg" alt="Chen Bo An" /></span>
 
-				<p data-lang-key="introP1">Hi, I'm Chen Bo An.</p>
-				<p data-lang-key="introP2">I'm a student majoring in Information Management at National Taiwan
-					University of Science and Technology.</p>
-				<p data-lang-key="introP3">In a world full of code and databases, I'm someone who is obsessed with
-					'efficiency'.</p>
-				<p data-lang-key="introP4">My inspiration comes from the way people interact with digital
-					environments—from complex databases to everyday apps.</p>
-				<p data-lang-key="introP5">I focus on transforming user needs into clear, logical systems, making
-					technology experiences more intuitive.</p>
-				<p data-lang-key="introP6">Welcome to my world.</p>
+				<p data-i18n="intro.p1">Hi, I'm Bo An Chen (陳柏安).<br />I'm a student majoring in Information Management
+					at Taiwan University of Science and Technology.</p>
+				<p data-i18n="intro.p2">In a world of code and databases, I'm someone with an obsession for
+					"efficiency."</p>
+				<p data-i18n="intro.p3">My inspiration comes from how people interact with digital environments — from
+					complex databases to everyday apps.<br />I focus on turning user needs into clear, logical systems
+					that make technology feel more intuitive.</p>
+				<p data-i18n="intro.p4">Welcome to my world.</p>
 
 				<ul class="actions">
-					<li><a href="#work" class="button primary" data-lang-key="introBtn">View My Work</a></li>
+					<li><a href="#work" class="button primary" data-i18n="intro.btn">View My Projects</a></li>
 				</ul>
 			</article>
 
 			<!-- Work -->
 			<article id="work">
-				<h2 class="major" data-lang-key="workTitle">Work</h2>
+				<h2 class="major" data-i18n="work.heading">Work</h2>
 				<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
 				<p><!-- Your first paragraph here --></p>
 				<p><!-- Your second paragraph here --></p>
@@ -129,33 +127,32 @@
 
 			<!-- About -->
 			<article id="about">
-				<h2 class="major" data-lang-key="aboutTitle">About</h2>
+				<h2 class="major" data-i18n="about.heading">About</h2>
 				<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
 				<p><!-- Your content here --></p>
 			</article>
 
 			<!-- Contact -->
 			<article id="contact">
-				<h2 class="major" data-lang-key="contactTitle">Contact</h2>
+				<h2 class="major" data-i18n="contact.heading">Contact</h2>
 				<form method="post" action="#">
 					<div class="fields">
 						<div class="field half">
-							<label for="name" data-lang-key="contactName">Name</label>
+							<label for="name" data-i18n="contact.name">Name</label>
 							<input type="text" name="name" id="name" />
 						</div>
 						<div class="field half">
-							<label for="email" data-lang-key="contactEmail">Email</label>
+							<label for="email" data-i18n="contact.email">Email</label>
 							<input type="text" name="email" id="email" />
 						</div>
 						<div class="field">
-							<label for="message" data-lang-key="contactMessage">Message</label>
+							<label for="message" data-i18n="contact.message">Message</label>
 							<textarea name="message" id="message" rows="4"></textarea>
 						</div>
 					</div>
 					<ul class="actions">
-						<li><input type="submit" data-lang-key="contactSend" value="Send Message" class="primary" />
-						</li>
-						<li><input type="reset" data-lang-key="contactReset" value="Reset" /></li>
+						<li><input type="submit" data-i18n="contact.send" value="Send Message" class="primary" /></li>
+						<li><input type="reset" data-i18n="contact.reset" value="Reset" /></li>
 					</ul>
 				</form>
 				<ul class="icons">
@@ -175,7 +172,7 @@
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright"><span data-lang-key="footerCopyright">© 2026 BO AN CHEN. Design:</span> <a
+			<p class="copyright" data-i18n="footer.copy">&copy; 2026 BO AN CHEN. Design: <a
 					href="https://html5up.net">HTML5 UP</a>.</p>
 		</footer>
 
@@ -190,6 +187,7 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/lang.js"></script>
 
 </body>
 
