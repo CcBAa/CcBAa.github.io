@@ -28,11 +28,18 @@
 			cursor: pointer;
 			font-size: 13px;
 			font-weight: 600;
-			letter-spacing: 0.5px;
+			letter-spacing: 0;
 			backdrop-filter: blur(10px);
 			-webkit-backdrop-filter: blur(10px);
 			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+			/* Center text */
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 60px;
+			text-align: center;
+			line-height: 1;
 		}
 
 		#lang-toggle:hover {
