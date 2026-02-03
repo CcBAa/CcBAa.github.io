@@ -61,13 +61,95 @@
 			box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 		}
 
-		/* Mobile responsive */
+		/* Mobile responsive for lang toggle */
 		@media screen and (max-width: 480px) {
 			#lang-toggle {
 				top: 15px;
 				right: 15px;
 				padding: 8px 14px;
 				font-size: 12px;
+			}
+		}
+
+		/* Project Grid Styles */
+		.project-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 1.5rem;
+			margin-top: 1.5rem;
+		}
+
+		.project-card {
+			display: block;
+			background: rgba(255, 255, 255, 0.05);
+			border: 1px solid rgba(255, 255, 255, 0.15);
+			border-radius: 8px;
+			overflow: hidden;
+			text-decoration: none;
+			color: inherit;
+			transition: all 0.3s ease;
+		}
+
+		.project-card:hover {
+			transform: translateY(-5px);
+			border-color: rgba(255, 255, 255, 0.3);
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+		}
+
+		.project-card .project-image {
+			width: 100%;
+			height: 200px;
+			overflow: hidden;
+		}
+
+		.project-card .project-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+		}
+
+		.project-card:hover .project-image img {
+			transform: scale(1.05);
+		}
+
+		.project-card .project-info {
+			padding: 1.25rem;
+		}
+
+		.project-card .project-info h3 {
+			margin: 0 0 0.5rem 0;
+			font-size: 1.1rem;
+			color: #fff;
+		}
+
+		.project-card .project-info p {
+			margin: 0;
+			font-size: 0.9rem;
+			opacity: 0.8;
+		}
+
+		/* Image Row for Screenshots */
+		.image-row {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1rem;
+			margin: 1rem 0;
+		}
+
+		.image-row .image {
+			display: block;
+		}
+
+		.image-row .image img {
+			width: 100%;
+			height: auto;
+			border-radius: 4px;
+		}
+
+		@media screen and (max-width: 600px) {
+			.image-row {
+				grid-template-columns: 1fr;
 			}
 		}
 	</style>
@@ -127,9 +209,68 @@
 			<!-- Work -->
 			<article id="work">
 				<h2 class="major" data-i18n="work.heading">Work</h2>
-				<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-				<p><!-- Your first paragraph here --></p>
-				<p><!-- Your second paragraph here --></p>
+				<p data-i18n="work.description">Here are some of my featured projects. Click on any project to learn
+					more.</p>
+
+				<!-- Project Grid -->
+				<div class="project-grid">
+					<!-- WhatEat Project Card -->
+					<a href="#whateat" class="project-card">
+						<div class="project-image">
+							<img src="images/whateat-preview.png" alt="WhatEat APP" />
+						</div>
+						<div class="project-info">
+							<h3 data-i18n="work.whateat.title">WhatEat APP</h3>
+							<p data-i18n="work.whateat.short">AI-powered restaurant recommendation app</p>
+						</div>
+					</a>
+
+					<!-- Add more project cards here -->
+				</div>
+			</article>
+
+			<!-- WhatEat Project Detail -->
+			<article id="whateat">
+				<h2 class="major" data-i18n="whateat.title">WhatEat APP</h2>
+
+				<span class="image main"><img src="images/whateat-preview.png" alt="WhatEat APP" /></span>
+
+				<h3 data-i18n="whateat.subtitle">AI-Powered Restaurant Recommendation</h3>
+
+				<p data-i18n="whateat.desc1">WhatEat is a university capstone project that solves the "what to eat"
+					decision paralysis problem. Unlike traditional food apps that rely on keyword searches, WhatEat uses
+					AI to proactively recommend restaurants based on your implicit needs.</p>
+
+				<h4 data-i18n="whateat.features.title">Key Features</h4>
+				<ul>
+					<li data-i18n="whateat.features.1"><strong>Contextual Understanding:</strong> Uses LLM to understand
+						implicit needs (mood, weather, dining purpose)</li>
+					<li data-i18n="whateat.features.2"><strong>Explainable AI:</strong> Tells users WHY a restaurant is
+						recommended, building trust</li>
+					<li data-i18n="whateat.features.3"><strong>Smart Search:</strong> AI-powered conversational search
+						interface</li>
+					<li data-i18n="whateat.features.4"><strong>Personalization:</strong> Dietary preferences and
+						restrictions support</li>
+				</ul>
+
+				<h4 data-i18n="whateat.screenshots">Screenshots</h4>
+				<div class="image-row">
+					<span class="image"><img src="images/whateat-search.png" alt="Search Interface" /></span>
+					<span class="image"><img src="images/whateat-settings.png" alt="Settings" /></span>
+				</div>
+
+				<h4 data-i18n="whateat.tech.title">Tech Stack</h4>
+				<p data-i18n="whateat.tech.desc">Android (Kotlin), LLM API, Google Places API, SQL Database</p>
+
+				<h4 data-i18n="whateat.team.title">Team</h4>
+				<p>
+					<strong>Chen Bo An (陳柏安)</strong> - Full Stack Development<br />
+					<strong>Yi-Hao Dong (董亦浩)</strong> - <a href="https://github.com/kivxxx" target="_blank">@kivxxx</a>
+				</p>
+
+				<ul class="actions">
+					<li><a href="#work" class="button" data-i18n="whateat.back">← Back to Work</a></li>
+				</ul>
 			</article>
 
 			<!-- About -->
