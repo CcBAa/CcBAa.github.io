@@ -3,7 +3,7 @@
 	BO AN CHEN | 陳柏安
 	Personal Portfolio Website
 -->
-<html>
+<html lang="en">
 
 <head>
 	<title>BO AN CHEN | 陳柏安</title>
@@ -13,9 +13,36 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+	<style>
+		/* Language Toggle Button Styles */
+		#lang-toggle {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 10000;
+			background: rgba(255, 255, 255, 0.1);
+			border: 1px solid rgba(255, 255, 255, 0.3);
+			color: #fff;
+			padding: 8px 16px;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 14px;
+			font-weight: 600;
+			backdrop-filter: blur(10px);
+			transition: all 0.3s ease;
+		}
+
+		#lang-toggle:hover {
+			background: rgba(255, 255, 255, 0.2);
+			border-color: rgba(255, 255, 255, 0.5);
+		}
+	</style>
 </head>
 
 <body class="is-preload">
+
+	<!-- Language Toggle Button -->
+	<button id="lang-toggle" onclick="toggleLanguage()" data-current-lang="en">中文</button>
 
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -27,16 +54,16 @@
 			</div>
 			<div class="content">
 				<div class="inner">
-					<h1>BO AN CHEN<br />陳柏安</h1>
-					<p>Student</p>
+					<h1 data-lang-key="name">BO AN CHEN</h1>
+					<p data-lang-key="title">Student</p>
 				</div>
 			</div>
 			<nav>
 				<ul>
-					<li><a href="#intro">Intro</a></li>
-					<li><a href="#work">Work</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<li><a href="#intro" data-lang-key="navIntro">Intro</a></li>
+					<li><a href="#work" data-lang-key="navWork">Work</a></li>
+					<li><a href="#about" data-lang-key="navAbout">About</a></li>
+					<li><a href="#contact" data-lang-key="navContact">Contact</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -46,27 +73,28 @@
 
 			<!-- Intro -->
 			<article id="intro">
-				<h2 class="major">Intro</h2>
+				<h2 class="major" data-lang-key="introTitle">Intro</h2>
 				<span class="image main"><img src="images/pic01.jpg" alt="Chen Bo An" /></span>
 
-				<p>嗨，我是陳柏安 (Chen Bo An)。<br />
-					我是台灣科技大學資訊管理系的學生。</p>
-
-				<p>在充滿程式碼與資料庫的世界裡，我是一個對「效率」有執著的異類。</p>
-
-				<p>我的靈感來自於人們與數位環境互動的方式——從複雜的資料庫到日常的 App。<br />
-					我專注於將使用者的需求轉化為清晰、合乎邏輯的系統，讓科技體驗變得更加直覺。</p>
-
-				<p>歡迎來到我的世界。</p>
+				<p data-lang-key="introP1">Hi, I'm Chen Bo An.</p>
+				<p data-lang-key="introP2">I'm a student majoring in Information Management at National Taiwan
+					University of Science and Technology.</p>
+				<p data-lang-key="introP3">In a world full of code and databases, I'm someone who is obsessed with
+					'efficiency'.</p>
+				<p data-lang-key="introP4">My inspiration comes from the way people interact with digital
+					environments—from complex databases to everyday apps.</p>
+				<p data-lang-key="introP5">I focus on transforming user needs into clear, logical systems, making
+					technology experiences more intuitive.</p>
+				<p data-lang-key="introP6">Welcome to my world.</p>
 
 				<ul class="actions">
-					<li><a href="#work" class="button primary">查看我的專案</a></li>
+					<li><a href="#work" class="button primary" data-lang-key="introBtn">View My Work</a></li>
 				</ul>
 			</article>
 
 			<!-- Work -->
 			<article id="work">
-				<h2 class="major">Work</h2>
+				<h2 class="major" data-lang-key="workTitle">Work</h2>
 				<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
 				<p><!-- Your first paragraph here --></p>
 				<p><!-- Your second paragraph here --></p>
@@ -74,32 +102,33 @@
 
 			<!-- About -->
 			<article id="about">
-				<h2 class="major">About</h2>
+				<h2 class="major" data-lang-key="aboutTitle">About</h2>
 				<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
 				<p><!-- Your content here --></p>
 			</article>
 
 			<!-- Contact -->
 			<article id="contact">
-				<h2 class="major">Contact</h2>
+				<h2 class="major" data-lang-key="contactTitle">Contact</h2>
 				<form method="post" action="#">
 					<div class="fields">
 						<div class="field half">
-							<label for="name">Name</label>
+							<label for="name" data-lang-key="contactName">Name</label>
 							<input type="text" name="name" id="name" />
 						</div>
 						<div class="field half">
-							<label for="email">Email</label>
+							<label for="email" data-lang-key="contactEmail">Email</label>
 							<input type="text" name="email" id="email" />
 						</div>
 						<div class="field">
-							<label for="message">Message</label>
+							<label for="message" data-lang-key="contactMessage">Message</label>
 							<textarea name="message" id="message" rows="4"></textarea>
 						</div>
 					</div>
 					<ul class="actions">
-						<li><input type="submit" value="Send Message" class="primary" /></li>
-						<li><input type="reset" value="Reset" /></li>
+						<li><input type="submit" data-lang-key="contactSend" value="Send Message" class="primary" />
+						</li>
+						<li><input type="reset" data-lang-key="contactReset" value="Reset" /></li>
 					</ul>
 				</form>
 				<ul class="icons">
@@ -119,7 +148,8 @@
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">&copy; 2026 BO AN CHEN. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+			<p class="copyright"><span data-lang-key="footerCopyright">© 2026 BO AN CHEN. Design:</span> <a
+					href="https://html5up.net">HTML5 UP</a>.</p>
 		</footer>
 
 	</div>
