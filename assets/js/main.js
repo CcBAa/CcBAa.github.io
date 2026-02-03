@@ -86,16 +86,26 @@ const langPack = {
 	}
 };
 
+// Current language state
+let currentLanguage = 'en';
+
 // Set Language Function
 function setLanguage(lang) {
 	const pack = langPack[lang];
-	if (!pack) return;
+	if (!pack) {
+		console.error('Language pack not found:', lang);
+		return;
+	}
+
+	// Update current language state
+	currentLanguage = lang;
 
 	// Update all elements with data-lang-key attribute
-	document.querySelectorAll('[data-lang-key]').forEach(el => {
+	const elements = document.querySelectorAll('[data-lang-key]');
+	elements.forEach(el => {
 		const key = el.getAttribute('data-lang-key');
-		if (pack[key]) {
-			if (el.tagName === 'INPUT') {
+		if (pack[key] !== undefined) {
+			if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
 				el.value = pack[key];
 			} else {
 				el.textContent = pack[key];
@@ -106,28 +116,62 @@ function setLanguage(lang) {
 	// Update document title
 	document.title = lang === 'en' ? 'BO AN CHEN | 陳柏安' : '陳柏安 | BO AN CHEN';
 
-	// Save to localStorage
-	localStorage.setItem('preferredLanguage', lang);
+	// Update html lang attribute
+	document.documentElement.lang = lang === 'en' ? 'en' : 'zh-TW';
 
-	// Update toggle button text
+	// Save to localStorage
+	try {
+		localStorage.setItem('preferredLanguage', lang);
+	} catch (e) {
+		console.warn('Could not save language preference:', e);
+	}
+
+	// Update toggle button
 	const toggleBtn = document.getElementById('lang-toggle');
 	if (toggleBtn) {
 		toggleBtn.textContent = pack.langToggle;
 		toggleBtn.setAttribute('data-current-lang', lang);
 	}
+
+	console.log('Language set to:', lang);
 }
 
 // Toggle Language Function
 function toggleLanguage() {
-	const currentLang = localStorage.getItem('preferredLanguage') || 'en';
-	const newLang = currentLang === 'en' ? 'zh' : 'en';
+	const newLang = currentLanguage === 'en' ? 'zh' : 'en';
 	setLanguage(newLang);
 }
 
+// Get saved language or default
+function getSavedLanguage() {
+	try {
+		return localStorage.getItem('preferredLanguage') || 'en';
+	} catch (e) {
+		return 'en';
+	}
+}
+
 // Initialize language on page load
-document.addEventListener('DOMContentLoaded', function () {
-	const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+function initLanguage() {
+	const savedLang = getSavedLanguage();
 	setLanguage(savedLang);
+}
+
+// Multiple initialization methods for reliability
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', initLanguage);
+} else {
+	// DOM already loaded
+	initLanguage();
+}
+
+// Also initialize on window load as fallback
+window.addEventListener('load', function () {
+	// Re-apply language in case any dynamic content was added
+	const savedLang = getSavedLanguage();
+	if (currentLanguage !== savedLang) {
+		setLanguage(savedLang);
+	}
 });
 
 (function ($) {
