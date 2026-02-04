@@ -283,10 +283,12 @@
 				<ul>
 					<li data-i18n="whateat.architecture.1"><strong>Intent Analysis:</strong> LLM parses natural language
 						into structural JSON constraints.</li>
-					<li data-i18n="whateat.architecture.2"><strong>Retrieval & Augmentation:</strong> Combines Semantic
-						Search (Vector) with SQL filtering to build valid context.</li>
-					<li data-i18n="whateat.architecture.3"><strong>Preference Modeling:</strong> Uses regression
-						analysis on LLM-extracted review features for long-term personalization.</li>
+					<li data-i18n="whateat.architecture.2"><strong>Retrieval:</strong> Fetches candidates via SQL (User
+						Data) and Google Places API.</li>
+					<li data-i18n="whateat.architecture.3"><strong>Personalization:</strong> Re-ranks results based on
+						historical preferences and weighted features.</li>
+					<li data-i18n="whateat.architecture.4"><strong>Generation:</strong> LLM synthesizes the final answer
+						with reasoning based on retrieved data.</li>
 				</ul>
 
 				<!-- Poster Image -->
@@ -305,10 +307,63 @@
 				</ul>
 
 				<h4 data-i18n="whateat.screenshots">Screenshots</h4>
-				<div class="image-row">
-					<span class="image"><img src="images/whateat-search.png" alt="Search Interface" /></span>
-					<span class="image"><img src="images/whateat-settings.png" alt="Settings" /></span>
+				<div class="gallery-grid">
+					<div class="gallery-item">
+						<img src="images/whateat-ui-search-active.png" alt="Conversational Search" />
+						<p data-i18n="whateat.gallery.search">Conversational Search</p>
+					</div>
+					<div class="gallery-item">
+						<img src="images/whateat-ui-map-search.png" alt="Visual Map Selection" />
+						<p data-i18n="whateat.gallery.map">Visual Map Selection</p>
+					</div>
+					<div class="gallery-item">
+						<img src="images/whateat-ui-recommendation.png" alt="AI Recommendations" />
+						<p data-i18n="whateat.gallery.recommendation">AI Recommendations</p>
+					</div>
+					<div class="gallery-item">
+						<img src="images/whateat-ui-restaurant-detail.png" alt="Reasoning & Details" />
+						<p data-i18n="whateat.gallery.detail">Reasoning & Details</p>
+					</div>
+					<div class="gallery-item">
+						<img src="images/whateat-ui-rating.png" alt="Rating & Feedback" />
+						<p data-i18n="whateat.gallery.rating">Rating & Feedback</p>
+					</div>
+					<div class="gallery-item">
+						<img src="images/whateat-ui-preferences.png" alt="Personal Preferences" />
+						<p data-i18n="whateat.gallery.preferences">Personal Preferences</p>
+					</div>
 				</div>
+
+				<style>
+					.gallery-grid {
+						display: grid;
+						grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+						gap: 1.5rem;
+						margin: 2rem 0;
+					}
+
+					.gallery-item {
+						text-align: center;
+					}
+
+					.gallery-item img {
+						width: 100%;
+						border-radius: 8px;
+						box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+						transition: transform 0.3s ease;
+						border: 1px solid rgba(255, 255, 255, 0.1);
+					}
+
+					.gallery-item:hover img {
+						transform: translateY(-5px);
+					}
+
+					.gallery-item p {
+						margin-top: 0.5rem;
+						font-size: 0.9rem;
+						color: rgba(255, 255, 255, 0.7);
+					}
+				</style>
 
 				<h4 data-i18n="whateat.tech.title">Tech Stack</h4>
 				<p data-i18n="whateat.tech.desc">Android (Kotlin), LLM API, Google Places API, SQL Database</p>
