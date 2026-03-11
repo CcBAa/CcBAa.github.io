@@ -216,13 +216,14 @@
 				<span class="image main"><img src="images/pic01.jpg" alt="Chen Bo An" /></span>
 
 				<p data-i18n="intro.p1">Hi, I'm Bo An Chen (陳柏安).<br />I'm a student majoring in Information Management
-					at Taiwan University of Science and Technology.</p>
-				<p data-i18n="intro.p2">In a world of code and databases, I'm someone with an obsession for
-					"efficiency."</p>
-				<p data-i18n="intro.p3">My inspiration comes from how people interact with digital environments — from
-					complex databases to everyday apps.<br />I focus on turning user needs into clear, logical systems
-					that make technology feel more intuitive.</p>
-				<p data-i18n="intro.p4">Welcome to my world.</p>
+					at National Taiwan University of Science and Technology.</p>
+				<p data-i18n="intro.p2">I enjoy using technology to make things simpler and more intuitive.</p>
+				<p data-i18n="intro.p3">Whether it's building an app, integrating AI, or designing a system workflow,
+					what matters most to me is that the people using it find it helpful and natural.</p>
+				<p data-i18n="intro.p4">I believe great products come from understanding people's needs &mdash; not just
+					what's technically possible, but what truly feels right to use. That's what I care about most in
+					every project I take on.</p>
+				<p data-i18n="intro.p5">Feel free to look around and learn more about my story.</p>
 
 				<ul class="actions">
 					<li><a href="#work" class="button primary" data-i18n="intro.btn">View My Projects</a></li>
@@ -245,6 +246,17 @@
 						<div class="project-info">
 							<h3 data-i18n="work.whateat.title">WhatEat APP</h3>
 							<p data-i18n="work.whateat.short">AI-powered restaurant recommendation app</p>
+						</div>
+					</a>
+
+					<!-- KM_CSS Project Card -->
+					<a href="#kmcss" class="project-card">
+						<div class="project-image">
+							<img src="images/kmcss-preview.png" alt="KM_CSS" />
+						</div>
+						<div class="project-info">
+							<h3 data-i18n="work.kmcss.title">KM_CSS</h3>
+							<p data-i18n="work.kmcss.short">Enterprise customer service repair management system</p>
 						</div>
 					</a>
 
@@ -370,12 +382,88 @@
 
 				<h4 data-i18n="whateat.team.title">Team</h4>
 				<p>
-					<strong>Chen Bo An (陳柏安)</strong> - Full Stack Development<br />
+					<strong>BO-AN CHEN (陳柏安)</strong> - Full Stack Development<br />
 					<strong>Yi-Hao Dong (董亦浩)</strong> - <a href="https://github.com/kivxxx" target="_blank">@kivxxx</a>
 				</p>
 
 				<ul class="actions">
 					<li><a href="#work" class="button" data-i18n="whateat.back">← Back to Work</a></li>
+				</ul>
+			</article>
+
+			<!-- KM_CSS Project Detail -->
+			<article id="kmcss">
+				<h2 class="major" data-i18n="kmcss.title">KM_CSS</h2>
+
+				<span class="image main"><img src="images/kmcss-preview.png" alt="KM_CSS System" /></span>
+
+				<h3 data-i18n="kmcss.subtitle">Customer Satisfaction Survey &amp; Service Management System</h3>
+
+				<p data-i18n="kmcss.desc1">KM_CSS is an enterprise-grade customer satisfaction survey and service
+					management system developed during my internship at KENMEC. The system enables end-to-end management
+					of customer satisfaction surveys, service tracking, engineering progress monitoring, and data-driven
+					analytics — all through a modern dark-themed admin dashboard.</p>
+
+				<h4 data-i18n="kmcss.features.title">Key Features</h4>
+				<ul>
+					<li data-i18n="kmcss.features.1"><strong>Analytics Dashboard:</strong> Real-time overview with KPI
+						cards, Chart.js visualizations (bar charts, doughnut charts), and latest feedback display</li>
+					<li data-i18n="kmcss.features.2"><strong>Survey Management:</strong> Token-based survey link
+						generation, customizable survey questions, and customer satisfaction data collection</li>
+					<li data-i18n="kmcss.features.3"><strong>Engineering Progress:</strong> Track maintenance and
+						renovation projects with ERP data synchronization, quotation tracking, and status management
+					</li>
+					<li data-i18n="kmcss.features.4"><strong>Customer &amp; Employee Management:</strong> Full CRUD
+						operations for customer and employee records, employee-customer mapping, and shift scheduling
+					</li>
+					<li data-i18n="kmcss.features.5"><strong>Satisfaction Analysis:</strong> Per-customer satisfaction
+						trends, score distribution analysis, service type statistics, and time-filtered detailed reports
+					</li>
+					<li data-i18n="kmcss.features.6"><strong>Service Request Portal:</strong> Customer-facing forms for
+						submitting service requests with contact info, problem descriptions, and photo uploads</li>
+					<li data-i18n="kmcss.features.7"><strong>Employee KPI:</strong> Automated KPI calculation based on
+						customer satisfaction scores linked to assigned technicians</li>
+				</ul>
+
+				<h4 data-i18n="kmcss.security.title">Security Implementation</h4>
+				<ul>
+					<li data-i18n="kmcss.security.1"><strong>Multi-level RBAC:</strong> Session-based authentication
+						with 3-tier permission levels — Admin (Level 2), Department Member (Level 1), and Guest (Level
+						0)</li>
+					<li data-i18n="kmcss.security.2"><strong>Token-based Access:</strong> Unique cryptographic tokens
+						for each customer survey link with expiration and activation controls</li>
+					<li data-i18n="kmcss.security.3"><strong>Input Validation:</strong> Server-side strict validation on
+						all API endpoints to prevent SQL Injection and XSS attacks</li>
+				</ul>
+
+				<h4 data-i18n="kmcss.tech.title">Tech Stack</h4>
+				<p data-i18n="kmcss.tech.desc">Flask (Python), SQLite, Vue.js 3, Element Plus, Chart.js</p>
+
+				<h4 data-i18n="kmcss.role.title">My Role</h4>
+				<p data-i18n="kmcss.role.desc">Full Stack Developer (Internship Project)</p>
+
+				<h4 data-i18n="kmcss.screenshots">Screenshots</h4>
+				<div class="gallery-grid">
+					<div class="gallery-item">
+						<img src="images/kmcss-preview.png" alt="Admin Dashboard" />
+						<p data-i18n="kmcss.gallery.dashboard">Admin Dashboard</p>
+					</div>
+					<div class="gallery-item">
+						<img src="images/kmcss-engineering.png" alt="Engineering Progress" />
+						<p data-i18n="kmcss.gallery.engineering">Engineering Progress</p>
+					</div>
+					<div class="gallery-item">
+						<img src="images/kmcss-customer-stats.png" alt="Customer Statistics" />
+						<p data-i18n="kmcss.gallery.customers">Customer Statistics</p>
+					</div>
+					<div class="gallery-item">
+						<img src="images/kmcss-survey.png" alt="Survey Responses" />
+						<p data-i18n="kmcss.gallery.survey">Survey Responses</p>
+					</div>
+				</div>
+
+				<ul class="actions">
+					<li><a href="#work" class="button" data-i18n="kmcss.back">← Back to Work</a></li>
 				</ul>
 			</article>
 
