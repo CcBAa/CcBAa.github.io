@@ -122,7 +122,7 @@
 			'exp.2.desc': 'Led frontend development of an AI-powered restaurant recommendation app using Flutter and Gemini API.',
 			'exp.3.date': '2022 – 2026',
 			'exp.3.title': 'National Taiwan University of Science and Technology',
-			'exp.3.desc': 'B.S. in Information Management. Coursework: Database Management, Software Engineering, Capstone Project.',
+			'exp.3.desc': 'B.S. in Information Management.',
 			'exp.3.tag': 'Education',
 			'lang.toggle': '中文'
 		},
@@ -242,7 +242,7 @@
 			'exp.2.desc': '主導前端開發，使用 Flutter 與 Gemini API 打造 AI 智慧餐廳推薦應用程式。',
 			'exp.3.date': '2022 – 2026',
 			'exp.3.title': '臺灣科技大學',
-			'exp.3.desc': '資訊管理系學士。修課：資料庫管理、軟體工程、畢業專題。',
+			'exp.3.desc': '資訊管理系學士。',
 			'exp.3.tag': '學歷',
 			'lang.toggle': 'EN'
 		}
