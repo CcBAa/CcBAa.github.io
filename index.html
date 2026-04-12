@@ -418,6 +418,109 @@
 				font-size: 18px;
 			}
 		}
+
+		/* Resume Toast */
+		.resume-toast {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(0);
+			background: rgba(20, 22, 30, 0.95);
+			border: 1px solid rgba(255, 255, 255, 0.15);
+			border-radius: 16px;
+			padding: 2.5rem 2.5rem 2rem;
+			z-index: 100000;
+			text-align: center;
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 255, 255, 0.03);
+			max-width: 380px;
+			width: 90%;
+			opacity: 0;
+			transition: none;
+		}
+
+		.resume-toast.show {
+			animation: toastBounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+		}
+
+		.resume-toast.hide {
+			animation: toastFadeOut 0.3s ease forwards;
+		}
+
+		.resume-toast-emoji {
+			font-size: 3.5rem;
+			line-height: 1;
+			margin-bottom: 1rem;
+			display: inline-block;
+			animation: emojiWiggle 0.6s ease 0.5s;
+		}
+
+		.resume-toast h4 {
+			color: #fff;
+			margin: 0 0 0.5rem;
+			font-size: 1.15rem;
+			letter-spacing: 0.02em;
+		}
+
+		.resume-toast p {
+			color: rgba(255, 255, 255, 0.6);
+			margin: 0;
+			font-size: 0.9rem;
+			line-height: 1.5;
+		}
+
+		.resume-toast-bar {
+			height: 3px;
+			background: linear-gradient(90deg, #FFD700, #FF6B6B, #00BFFF);
+			border-radius: 3px;
+			margin-top: 1.5rem;
+			animation: barShrink 2.8s linear 0.5s forwards;
+			transform-origin: left;
+		}
+
+		.resume-toast-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.4);
+			z-index: 99999;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+			pointer-events: none;
+		}
+
+		.resume-toast-overlay.show {
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+		@keyframes toastBounceIn {
+			0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
+			50%  { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+			70%  { transform: translate(-50%, -50%) scale(0.95); }
+			100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+		}
+
+		@keyframes toastFadeOut {
+			0%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+			100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8) translateY(20px); }
+		}
+
+		@keyframes emojiWiggle {
+			0%, 100% { transform: rotate(0deg); }
+			20%  { transform: rotate(-15deg); }
+			40%  { transform: rotate(15deg); }
+			60%  { transform: rotate(-8deg); }
+			80%  { transform: rotate(8deg); }
+		}
+
+		@keyframes barShrink {
+			0%   { transform: scaleX(1); }
+			100% { transform: scaleX(0); }
+		}
 	</style>
 </head>
 
@@ -887,8 +990,8 @@
 				</ul>
 
 				<ul class="actions">
-					<li><a href="assets/resume.pdf" class="button icon solid fa-download" data-i18n="about.resume"
-							download>Download Resume</a></li>
+					<li><a href="javascript:void(0)" class="button icon solid fa-download" data-i18n="about.resume"
+							onclick="showResumeToast()">Download Resume</a></li>
 				</ul>
 			</article>
 
@@ -1042,6 +1145,39 @@
 				}
 			});
 		})();
+	</script>
+
+	<!-- Resume Toast -->
+	<div class="resume-toast-overlay" id="resume-overlay"></div>
+	<div class="resume-toast" id="resume-toast">
+		<div class="resume-toast-emoji">🚧</div>
+		<h4 data-i18n="about.resume.toast.title">Oops! Still cooking...</h4>
+		<p data-i18n="about.resume.toast.desc">My resume is being carefully crafted.<br>Check back soon! 🍳</p>
+		<div class="resume-toast-bar"></div>
+	</div>
+	<script>
+		var resumeTimer = null;
+		function showResumeToast() {
+			var toast = document.getElementById('resume-toast');
+			var overlay = document.getElementById('resume-overlay');
+			if (resumeTimer) clearTimeout(resumeTimer);
+			// Reset animation
+			toast.classList.remove('show', 'hide');
+			void toast.offsetWidth;
+			overlay.classList.add('show');
+			toast.classList.add('show');
+			resumeTimer = setTimeout(function () { hideResumeToast(); }, 3300);
+		}
+		function hideResumeToast() {
+			var toast = document.getElementById('resume-toast');
+			var overlay = document.getElementById('resume-overlay');
+			toast.classList.remove('show');
+			toast.classList.add('hide');
+			overlay.classList.remove('show');
+			if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; }
+		}
+		document.getElementById('resume-overlay').addEventListener('click', hideResumeToast);
+		document.getElementById('resume-toast').addEventListener('click', hideResumeToast);
 	</script>
 
 </body>
