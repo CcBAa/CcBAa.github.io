@@ -463,6 +463,26 @@
 			letter-spacing: 0.02em;
 		}
 
+		.resume-toast-close {
+			position: absolute;
+			top: 12px;
+			right: 16px;
+			background: none;
+			border: none;
+			color: rgba(255, 255, 255, 0.4);
+			font-size: 1.4rem;
+			cursor: pointer;
+			line-height: 1;
+			padding: 4px 8px;
+			border-radius: 6px;
+			transition: all 0.2s ease;
+		}
+
+		.resume-toast-close:hover {
+			color: #fff;
+			background: rgba(255, 255, 255, 0.1);
+		}
+
 		.resume-toast p {
 			color: rgba(255, 255, 255, 0.6);
 			margin: 0;
@@ -1150,6 +1170,7 @@
 	<!-- Resume Toast -->
 	<div class="resume-toast-overlay" id="resume-overlay"></div>
 	<div class="resume-toast" id="resume-toast">
+		<button class="resume-toast-close" onclick="hideResumeToast()">&times;</button>
 		<div class="resume-toast-emoji">🚧</div>
 		<h4 data-i18n="about.resume.toast.title">Oops! Still cooking...</h4>
 		<p data-i18n="about.resume.toast.desc">My resume is being carefully crafted.<br>Check back soon! 🍳</p>
