@@ -482,6 +482,17 @@
 
 				<!-- Project Grid -->
 				<div class="project-grid">
+					<!-- TX-Observer Project Card -->
+					<a href="#txobserver" class="project-card fade-in">
+						<div class="project-image">
+							<img src="images/txobserver-discord.png" alt="TX-Observer" />
+						</div>
+						<div class="project-info">
+							<h3 data-i18n="work.txobserver.title">TX-Observer</h3>
+							<p data-i18n="work.txobserver.short">Automated Taiwan futures & spot K-line chart push notification system</p>
+						</div>
+					</a>
+
 					<!-- WhatEat Project Card -->
 					<a href="#whateat" class="project-card fade-in">
 						<div class="project-image">
@@ -724,10 +735,75 @@
 				</ul>
 			</article>
 
+			<!-- TX-Observer Project Detail -->
+			<article id="txobserver">
+				<h2 class="major" data-i18n="txobserver.title">TX-Observer</h2>
+
+				<span class="image main"><img src="images/txobserver-discord.png" alt="TX-Observer Discord" /></span>
+
+				<h3 data-i18n="txobserver.subtitle">Automated Taiwan Futures & Spot K-line Chart Push Notification System</h3>
+
+				<p data-i18n="txobserver.desc1">TX-Observer is a fully automated technical analysis push notification bot deployed on a headless Linux server. The system follows strict trading session schedules to automatically fetch market data via Shioaji API, generate professional-grade K-line charts with moving averages, and push them to Discord and Telegram — all without any GUI or manual intervention.</p>
+
+				<h4 data-i18n="txobserver.features.title">Key Features</h4>
+				<ul>
+					<li data-i18n="txobserver.features.1"><strong>Dual-Period Combined Charts:</strong> Futures: 60K + 5K dual-panel chart; Spot: Daily K + 60K dual-panel chart, with MA5/10/20/60/240, high/low annotations, and Doji candlestick highlighting</li>
+					<li data-i18n="txobserver.features.2"><strong>Smart Scheduling:</strong> Dual-layer protection — XTAI market calendar (handles holidays, Chinese New Year, typhoon closures, Saturday make-up sessions) + trading session time-gate filter</li>
+					<li data-i18n="txobserver.features.3"><strong>Settlement Day Alerts:</strong> Automatically detects the third Wednesday of each month (futures settlement day) and prepends a settlement day notice to push messages</li>
+					<li data-i18n="txobserver.features.4"><strong>Data Freshness Diagnostics:</strong> Three-layer guard (session / holiday / Snapshot comparison) with automatic token-expiry re-login and stale data detection</li>
+					<li data-i18n="txobserver.features.5"><strong>Dual-Platform Push:</strong> Discord Webhook + Telegram Bot with independent error isolation — one platform's failure never blocks the other</li>
+					<li data-i18n="txobserver.features.6"><strong>Error Isolation:</strong> Single-symbol failures are logged without affecting other symbols; the scheduler keeps running without crashes</li>
+				</ul>
+
+				<h4 data-i18n="txobserver.architecture.title">System Architecture</h4>
+				<p data-i18n="txobserver.architecture.desc">Fully automated data pipeline running on a headless Linux VPS:</p>
+				<ul>
+					<li data-i18n="txobserver.architecture.1"><strong>Data Layer:</strong> Shioaji API → 1-min OHLCV bars → session-aware resample to 5K / 60K / Daily</li>
+					<li data-i18n="txobserver.architecture.2"><strong>Rendering Layer:</strong> matplotlib GridSpec single-figure combined chart with mplfinance external-axes mode, dark theme, CJK font support</li>
+					<li data-i18n="txobserver.architecture.3"><strong>Push Layer:</strong> Direct binary upload to Discord Webhook (multipart) + Telegram Bot API (sendPhoto), no external image host needed</li>
+					<li data-i18n="txobserver.architecture.4"><strong>Scheduling Layer:</strong> APScheduler cron triggers with market calendar integration, closing summary retry×3, and misfire grace handling</li>
+				</ul>
+
+				<h4 data-i18n="txobserver.tech.title">Tech Stack</h4>
+				<p data-i18n="txobserver.tech.desc">Python, Shioaji API, pandas, matplotlib / mplfinance, APScheduler, Discord Webhook, Telegram Bot API, Linux systemd</p>
+
+				<h4 data-i18n="txobserver.role.title">My Role</h4>
+				<p data-i18n="txobserver.role.desc">Solo Developer — Full pipeline from data fetching, resample logic, dark-themed chart rendering, to dual-platform push and systemd deployment</p>
+
+				<h4 data-i18n="txobserver.screenshots">Screenshots</h4>
+				<div class="gallery-grid">
+					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+						<img src="images/txobserver-chart.png" alt="K-line Combined Chart" />
+						<p data-i18n="txobserver.gallery.chart">60K + 5K Combined Chart</p>
+					</div>
+					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+						<img src="images/txobserver-discord.png" alt="Discord Push" />
+						<p data-i18n="txobserver.gallery.discord">Discord Push Notification</p>
+					</div>
+					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+						<img src="images/txobserver-telegram.png" alt="Telegram Push" />
+						<p data-i18n="txobserver.gallery.telegram">Telegram Push Notification</p>
+					</div>
+				</div>
+
+				<h4 data-i18n="txobserver.links.title">Links</h4>
+				<ul class="actions">
+					<li><a href="https://github.com/CcBAa/TX-Observer" class="button icon brands fa-github" target="_blank">GitHub Repository</a></li>
+					<li><a href="#work" class="button" data-i18n="txobserver.back">← Back to Work</a></li>
+				</ul>
+			</article>
+
 			<!-- Experience -->
 			<article id="experience">
 				<h2 class="major" data-i18n="exp.heading">Experience</h2>
 				<div class="timeline">
+					<div class="timeline-item fade-in">
+						<div class="timeline-dot"></div>
+						<div class="timeline-date" data-i18n="exp.0.date">2026</div>
+						<div class="timeline-title" data-i18n="exp.0.title">TX-Observer — Personal Project</div>
+						<p class="timeline-desc" data-i18n="exp.0.desc">Built a fully automated Taiwan futures & spot index K-line chart push notification system, deployed on a headless Linux server with dual-platform push to Discord & Telegram.</p>
+						<span class="timeline-tag" data-i18n="exp.0.tag">Solo Developer</span>
+					</div>
 					<div class="timeline-item fade-in">
 						<div class="timeline-dot"></div>
 						<div class="timeline-date" data-i18n="exp.1.date">2025</div>
