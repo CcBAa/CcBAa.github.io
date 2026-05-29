@@ -31,8 +31,32 @@
 		content="Information Management student passionate about efficiency, AI applications, and Web3." />
 	<meta name="twitter:image" content="https://chenba.me/images/og-image.png" />
 
+	<link rel="canonical" href="https://chenba.me/" />
 	<link rel="icon" type="image/png" href="images/favicon.png" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+
+	<!-- Structured Data -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Bo An Chen",
+		"alternateName": "陳柏安",
+		"url": "https://chenba.me",
+		"sameAs": [
+			"https://github.com/CcBAa",
+			"https://www.linkedin.com/in/diego-chen/",
+			"https://twitter.com/Chen_ba_",
+			"https://instagram.com/chen.b.a"
+		],
+		"jobTitle": "Full Stack Developer",
+		"alumniOf": {
+			"@type": "CollegeOrUniversity",
+			"name": "National Taiwan University of Science and Technology"
+		},
+		"knowsAbout": ["Python", "Flutter", "Vue.js", "AI/LLM Integration", "Web Development"]
+	}
+	</script>
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
@@ -257,31 +281,35 @@
 		/* Gallery Lightbox */
 		.gallery-grid {
 			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			gap: 1rem;
-			margin: 1rem 0;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 1.5rem;
+			margin: 2rem 0;
 		}
 
 		.gallery-item {
 			cursor: pointer;
+			text-align: center;
 			transition: transform 0.3s ease;
-		}
-
-		.gallery-item:hover {
-			transform: scale(1.03);
 		}
 
 		.gallery-item img {
 			width: 100%;
 			height: auto;
-			border-radius: 6px;
+			border-radius: 8px;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			transition: transform 0.3s ease;
+		}
+
+		.gallery-item:hover img {
+			transform: translateY(-5px);
 		}
 
 		.gallery-item p {
 			text-align: center;
 			margin-top: 0.5rem;
 			font-size: 0.9rem;
-			opacity: 0.8;
+			color: rgba(255, 255, 255, 0.7);
 		}
 
 		.lightbox-overlay {
@@ -580,7 +608,7 @@
 			<!-- Intro -->
 			<article id="intro">
 				<h2 class="major" data-i18n="intro.heading">Intro</h2>
-				<span class="image main"><img src="images/pic01.jpg" alt="Chen Bo An" /></span>
+				<span class="image main"><img loading="lazy" src="images/pic01.jpg" alt="Chen Bo An" /></span>
 
 				<p data-i18n="intro.p1">Hi, I'm Bo An Chen (陳柏安).<br />I'm a student majoring in Information Management
 					at National Taiwan University of Science and Technology.</p>
@@ -608,7 +636,7 @@
 					<!-- TX-Observer Project Card -->
 					<a href="#txobserver" class="project-card fade-in">
 						<div class="project-image">
-							<img src="images/txobserver-discord.png" alt="TX-Observer" />
+							<img loading="lazy" src="images/txobserver-discord.png" alt="TX-Observer" />
 						</div>
 						<div class="project-info">
 							<h3 data-i18n="work.txobserver.title">TX-Observer</h3>
@@ -619,7 +647,7 @@
 					<!-- WhatEat Project Card -->
 					<a href="#whateat" class="project-card fade-in">
 						<div class="project-image">
-							<img src="images/whateat-preview.png" alt="WhatEat APP" />
+							<img loading="lazy" src="images/whateat-preview.png" alt="WhatEat APP" />
 						</div>
 						<div class="project-info">
 							<h3 data-i18n="work.whateat.title">WhatEat APP</h3>
@@ -630,7 +658,7 @@
 					<!-- KM_CSS Project Card -->
 					<a href="#kmcss" class="project-card fade-in">
 						<div class="project-image">
-							<img src="images/kmcss-dashboard.png" alt="KM_CSS" />
+							<img loading="lazy" src="images/kmcss-dashboard.png" alt="KM_CSS" />
 						</div>
 						<div class="project-info">
 							<h3 data-i18n="work.kmcss.title">KM_CSS</h3>
@@ -646,7 +674,7 @@
 			<article id="whateat">
 				<h2 class="major" data-i18n="whateat.title">WhatEat APP</h2>
 
-				<span class="image main"><img src="images/whateat-preview.png" alt="WhatEat APP" /></span>
+				<span class="image main"><img loading="lazy" src="images/whateat-preview.png" alt="WhatEat APP" /></span>
 
 				<h3 data-i18n="whateat.subtitle">AI-Powered Restaurant Recommendation</h3>
 
@@ -682,7 +710,7 @@
 				</ul>
 
 				<!-- Poster Image -->
-				<span class="image main"><img src="images/whateat-poster.jpg"
+				<span class="image main"><img loading="lazy" src="images/whateat-poster.jpg"
 						alt="WhatEat System Architecture Poster" /></span>
 
 				<!-- Technical Highlights -->
@@ -698,65 +726,35 @@
 
 				<h4 data-i18n="whateat.screenshots">Screenshots</h4>
 				<div class="gallery-grid">
-					<div class="gallery-item">
-						<img src="images/whateat-ui-search-active.png" alt="Conversational Search" />
+					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+						<img loading="lazy" src="images/whateat-ui-search-active.png" alt="Conversational Search" />
 						<p data-i18n="whateat.gallery.search">Conversational Search</p>
 					</div>
-					<div class="gallery-item">
-						<img src="images/whateat-ui-map-search.png" alt="Visual Map Selection" />
+					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+						<img loading="lazy" src="images/whateat-ui-map-search.png" alt="Visual Map Selection" />
 						<p data-i18n="whateat.gallery.map">Visual Map Selection</p>
 					</div>
-					<div class="gallery-item">
-						<img src="images/whateat-ui-recommendation.png" alt="AI Recommendations" />
+					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+						<img loading="lazy" src="images/whateat-ui-recommendation.png" alt="AI Recommendations" />
 						<p data-i18n="whateat.gallery.recommendation">AI Recommendations</p>
 					</div>
-					<div class="gallery-item">
-						<img src="images/whateat-ui-restaurant-detail.png" alt="Reasoning & Details" />
+					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+						<img loading="lazy" src="images/whateat-ui-restaurant-detail.png" alt="Reasoning & Details" />
 						<p data-i18n="whateat.gallery.detail">Reasoning & Details</p>
 					</div>
-					<div class="gallery-item">
-						<img src="images/whateat-ui-rating.png" alt="Rating & Feedback" />
+					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+						<img loading="lazy" src="images/whateat-ui-rating.png" alt="Rating & Feedback" />
 						<p data-i18n="whateat.gallery.rating">Rating & Feedback</p>
 					</div>
-					<div class="gallery-item">
-						<img src="images/whateat-ui-preferences.png" alt="Personal Preferences" />
+					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+						<img loading="lazy" src="images/whateat-ui-preferences.png" alt="Personal Preferences" />
 						<p data-i18n="whateat.gallery.preferences">Personal Preferences</p>
 					</div>
 				</div>
 
-				<style>
-					.gallery-grid {
-						display: grid;
-						grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-						gap: 1.5rem;
-						margin: 2rem 0;
-					}
-
-					.gallery-item {
-						text-align: center;
-					}
-
-					.gallery-item img {
-						width: 100%;
-						border-radius: 8px;
-						box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-						transition: transform 0.3s ease;
-						border: 1px solid rgba(255, 255, 255, 0.1);
-					}
-
-					.gallery-item:hover img {
-						transform: translateY(-5px);
-					}
-
-					.gallery-item p {
-						margin-top: 0.5rem;
-						font-size: 0.9rem;
-						color: rgba(255, 255, 255, 0.7);
-					}
-				</style>
 
 				<h4 data-i18n="whateat.tech.title">Tech Stack</h4>
-				<p data-i18n="whateat.tech.desc">Android (Kotlin), LLM API, Google Places API, SQL Database</p>
+				<p data-i18n="whateat.tech.desc">Flutter, Python (Flask), SQL Server, Gemini / OpenAI, Google Places API</p>
 
 				<h4 data-i18n="whateat.team.title">Team</h4>
 				<p>
@@ -773,7 +771,7 @@
 			<article id="kmcss">
 				<h2 class="major" data-i18n="kmcss.title">KM_CSS</h2>
 
-				<span class="image main"><img src="images/kmcss-dashboard.png" alt="KM_CSS System" /></span>
+				<span class="image main"><img loading="lazy" src="images/kmcss-dashboard.png" alt="KM_CSS System" /></span>
 
 				<h3 data-i18n="kmcss.subtitle">Customer Satisfaction Survey &amp; Service Management System</h3>
 
@@ -824,31 +822,31 @@
 				<h4 data-i18n="kmcss.screenshots">Screenshots</h4>
 				<div class="gallery-grid">
 					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-						<img src="images/kmcss-dashboard.png" alt="Admin Dashboard" />
+						<img loading="lazy" src="images/kmcss-dashboard.png" alt="Admin Dashboard" />
 						<p data-i18n="kmcss.gallery.dashboard">Admin Dashboard</p>
 					</div>
 					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-						<img src="images/kmcss-engineering.png" alt="Engineering Progress" />
+						<img loading="lazy" src="images/kmcss-engineering.png" alt="Engineering Progress" />
 						<p data-i18n="kmcss.gallery.engineering">Engineering Progress</p>
 					</div>
 					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-						<img src="images/kmcss-customer-stats.png" alt="Customer Statistics" />
+						<img loading="lazy" src="images/kmcss-customer-stats.png" alt="Customer Statistics" />
 						<p data-i18n="kmcss.gallery.customers">Customer Statistics</p>
 					</div>
 					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-						<img src="images/kmcss-satisfaction.png" alt="Satisfaction Analysis" />
+						<img loading="lazy" src="images/kmcss-satisfaction.png" alt="Satisfaction Analysis" />
 						<p data-i18n="kmcss.gallery.satisfaction">Satisfaction Analysis</p>
 					</div>
 					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-						<img src="images/kmcss-service-stats.png" alt="Service Statistics" />
+						<img loading="lazy" src="images/kmcss-service-stats.png" alt="Service Statistics" />
 						<p data-i18n="kmcss.gallery.service">Service Statistics</p>
 					</div>
 					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-						<img src="images/kmcss-ai-analysis.png" alt="AI Service Report Analysis" />
+						<img loading="lazy" src="images/kmcss-ai-analysis.png" alt="AI Service Report Analysis" />
 						<p data-i18n="kmcss.gallery.ai">AI Service Report Analysis</p>
 					</div>
 					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-						<img src="images/kmcss-login.png" alt="Admin Login" />
+						<img loading="lazy" src="images/kmcss-login.png" alt="Admin Login" />
 						<p data-i18n="kmcss.gallery.login">Admin Login</p>
 					</div>
 				</div>
@@ -862,7 +860,7 @@
 			<article id="txobserver">
 				<h2 class="major" data-i18n="txobserver.title">TX-Observer</h2>
 
-				<span class="image main"><img src="images/txobserver-discord.png" alt="TX-Observer Discord" /></span>
+				<span class="image main"><img loading="lazy" src="images/txobserver-discord.png" alt="TX-Observer Discord" /></span>
 
 				<h3 data-i18n="txobserver.subtitle">Automated Taiwan Futures & Spot K-line Chart Push Notification System</h3>
 
@@ -896,15 +894,15 @@
 				<h4 data-i18n="txobserver.screenshots">Screenshots</h4>
 				<div class="gallery-grid">
 					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-						<img src="images/txobserver-chart.png" alt="K-line Combined Chart" />
+						<img loading="lazy" src="images/txobserver-chart.png" alt="K-line Combined Chart" />
 						<p data-i18n="txobserver.gallery.chart">60K + 5K Combined Chart</p>
 					</div>
 					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-						<img src="images/txobserver-discord.png" alt="Discord Push" />
+						<img loading="lazy" src="images/txobserver-discord.png" alt="Discord Push" />
 						<p data-i18n="txobserver.gallery.discord">Discord Push Notification</p>
 					</div>
 					<div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-						<img src="images/txobserver-telegram.png" alt="Telegram Push" />
+						<img loading="lazy" src="images/txobserver-telegram.png" alt="Telegram Push" />
 						<p data-i18n="txobserver.gallery.telegram">Telegram Push Notification</p>
 					</div>
 				</div>
@@ -959,7 +957,7 @@
 			<article id="about">
 				<h2 class="major" data-i18n="about.heading">About</h2>
 				<div style="text-align: center; margin-bottom: 2rem;">
-					<img src="images/pic03.jpg" alt="About"
+					<img loading="lazy" src="images/pic03.jpg" alt="About"
 						style="width: 280px; height: 280px; object-fit: cover; object-position: center top; border-radius: 50%; border: 3px solid rgba(255,255,255,0.2);" />
 				</div>
 				<h3 data-i18n="about.skills.title">Skills</h3>
@@ -1026,7 +1024,7 @@
 						</div>
 						<div class="field half">
 							<label for="email" data-i18n="contact.email">Email</label>
-							<input type="text" name="email" id="email" placeholder="e.g. name@example.com" />
+							<input type="email" name="email" id="email" placeholder="e.g. name@example.com" />
 						</div>
 						<div class="field">
 							<label for="message" data-i18n="contact.message">Message</label>
